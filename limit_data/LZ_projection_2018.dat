@@ -2,8 +2,8 @@ source: 1802.06039
 label: LZ
 year: 2018
 color: #000000
-label_xpos: 2.0
-label_ypos: 1.33876e-44
+label_xpos: 2.0e1
+label_ypos: 6.33876e-48
 3,2.33876e-42
 4,5.55441e-44
 6,1.41651e-45
