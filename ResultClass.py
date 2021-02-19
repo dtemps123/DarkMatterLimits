@@ -165,5 +165,5 @@ class ResultContour:
 		if (show_label):
 			ax.text( self.label_xpos, self.label_ypos ,
 				self.label,
-				color    = self.color,
+				color    = 'k', #self.color,
 				fontsize = 10.)
