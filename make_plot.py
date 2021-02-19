@@ -5,12 +5,9 @@ import pandas as pd
 ## Need these for plot formatting
 from matplotlib.gridspec import GridSpec
 
-## Need these for fitting/interpolating
-from scipy.optimize import curve_fit
-from scipy.interpolate import interp1d
-
 ## Class types
 import ResultClass as RC
+import NeutrinoFloorClass as NFC
 
 ## ==================================================== ##
 ## Define the plotting style options
@@ -53,6 +50,27 @@ LZ        = RC.ResultCurve("LZ_projection_2018.dat")
 SuperCDMS = RC.ResultCurve("SuperCDMS_SNOLAB_projection_2017.dat")
 XENONnT   = RC.ResultCurve("XENONnT_projection_2020.dat")
 
+## Neutrino Fog curves
+NuFog     = NFC.NeutrinoFog("SI_NeutrinoFloor_Ruppin_LZ_Fig3_1000ty.dat")
+
+## Calculate the excluded parameter space
+plot_x_limits = n.array([ 3.00678e-1 , 1e3   ])
+plot_y_limits = n.array([ 1e-50      , 1e-30 ])
+
+x_val_arr     = n.logspace( start = n.log10(plot_x_limits[0]),
+							stop  = n.log10(plot_x_limits[1]),
+							num   = 1000)
+interp_array  = n.zeros(shape=(5,1000))
+
+interp_array[0,:] = X1T_MIG.interpolator(n.power(x_val_arr,1))
+interp_array[1,:] = DarkSide.interpolator(n.power(x_val_arr,1))
+interp_array[2,:] = PANDAX.interpolator(n.power(x_val_arr,1))
+interp_array[3,:] = LUX.interpolator(n.power(x_val_arr,1))
+interp_array[4,:] = XENON1T.interpolator(n.power(x_val_arr,1))
+
+exp_upper_lim     = n.min(interp_array, axis=0)
+
+
 ## ==================================================== ##
 fig, ax0 = pyp.subplots(1,1, figsize = (9,7))
 
@@ -78,13 +96,23 @@ LZ.plot_curve(fig, style='projection')
 SuperCDMS.plot_curve(fig, style='projection')
 XENONnT.plot_curve(fig, style='projection')
 
+## Add the neutrino floor
+NuFog.plot_curve(fig)
+
+## Fill in the exclusion curve
+ax0.fill_between(x_val_arr, exp_upper_lim, 1e-28, 
+	color  = '#aaffc3', 
+	zorder = 0, 
+	alpha  = 0.5, 
+	lw     = 0)
+
 ## Set the plot scales
 ax0.set_xscale('log')
 ax0.set_yscale('log')
 
 ## Set the plot limits
-ax0.set_xlim(3.00678e-1,1e3)
-ax0.set_ylim(1e-50,1e-30)
+ax0.set_xlim(plot_x_limits)
+ax0.set_ylim(plot_y_limits)
 
 ## Set the axis labels
 ax0.set_xlabel('WIMP mass [GeV/c$^{2}$]')
