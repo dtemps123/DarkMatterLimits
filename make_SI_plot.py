@@ -84,7 +84,7 @@ exp_upper_lim     = n.min(interp_array, axis=0)
 fig, ax0 = pyp.subplots(1,1, figsize = (9,7))
 
 ## Add the result curves
-CDEX10.plot_curve(fig)
+# CDEX10.plot_curve(fig)
 CDMSLite.plot_curve(fig)
 CRESSTII.plot_curve(fig)
 CRESSTIII.plot_curve(fig)
