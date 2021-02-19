@@ -46,9 +46,6 @@ class ResultCurve:
 			if (parts[0].lower()=="label_ypos"):
 				self.label_ypos  = float(parts[1])
 
-		## Add more text to label
-		self.label = self.label + " (" + self.year + ")"
-
 		## Overwrite the label if requested
 		if not (user_label == None):
 			self.label = user_label
@@ -84,10 +81,16 @@ class ResultCurve:
 			label     = self.label,
 			zorder    = 3)
 
+		## Add more text to label
+		if not (style=='projection'):
+			text_label = self.label + " (" + self.year + ")"
+		else:
+			text_label = self.label
+
 		## Draw the text
 		if (show_label):
 			ax.text( self.label_xpos, self.label_ypos ,
-				self.label,
+				text_label,
 				color    = self.color,
 				fontsize = 10.)
 
