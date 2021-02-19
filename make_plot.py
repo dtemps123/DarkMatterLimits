@@ -34,6 +34,7 @@ CDMSLite  = RC.ResultCurve("CDMSLite_2016.dat")
 CRESSTII  = RC.ResultCurve("CRESSTII_2015.dat")
 CRESSTIII = RC.ResultCurve("CRESSTIII_2017.dat")
 CRESSTsrf = RC.ResultCurve("CRESSTsurface_2017.dat")
+DAMIC100  = RC.ResultCurve("DAMIC_SNOLAB_2016.dat")
 DarkSide  = RC.ResultCurve("DarkSide50_S2only_2018.dat")
 LUX       = RC.ResultCurve("LUX_completeExposure_2016.dat")
 NEWSG     = RC.ResultCurve("NEWS_G_2018.dat")
@@ -42,6 +43,7 @@ PICO_C3F8 = RC.ResultCurve("PICO_C3F8_2017.dat")
 PICO_CF3I = RC.ResultCurve("PICO_CF3I_2015.dat")
 X1T_MIG   = RC.ResultCurve("X1T_MIGDAL_2020.dat")
 XENON1T   = RC.ResultCurve("XENON1T_2018.dat")
+XENON1T2  = RC.ResultCurve("XENON1T_lowmass.dat")
 XENON100  = RC.ResultCurve("XENON100S2_2016.dat")
 XMASS     = RC.ResultCurve("XMASS_2018.dat")
 
@@ -50,6 +52,7 @@ DAMA_I    = RC.ResultContour("DAMA_I.dat")
 DAMA_Na   = RC.ResultContour("DAMA_Na.dat")
 
 ## Projection curves
+DAMICM    = RC.ResultCurve("DAMIC_M_2020.dat")
 LZ        = RC.ResultCurve("LZ_projection_2018.dat")
 SuperCDMS = RC.ResultCurve("SuperCDMS_SNOLAB_projection_2017.dat")
 XENONnT   = RC.ResultCurve("XENONnT_projection_2020.dat")
@@ -64,13 +67,14 @@ plot_y_limits = n.array([ 1e-50      , 1e-30 ])
 x_val_arr     = n.logspace( start = n.log10(plot_x_limits[0]),
 							stop  = n.log10(plot_x_limits[1]),
 							num   = 1000)
-interp_array  = n.zeros(shape=(5,1000))
+interp_array  = n.zeros(shape=(6,1000))
 
 interp_array[0,:] = X1T_MIG.interpolator(n.power(x_val_arr,1))
 interp_array[1,:] = DarkSide.interpolator(n.power(x_val_arr,1))
 interp_array[2,:] = PANDAX.interpolator(n.power(x_val_arr,1))
 interp_array[3,:] = LUX.interpolator(n.power(x_val_arr,1))
 interp_array[4,:] = XENON1T.interpolator(n.power(x_val_arr,1))
+interp_array[5,:] = XENON1T2.interpolator(n.power(x_val_arr,1))
 
 exp_upper_lim     = n.min(interp_array, axis=0)
 
@@ -84,6 +88,7 @@ CDMSLite.plot_curve(fig)
 CRESSTII.plot_curve(fig)
 CRESSTIII.plot_curve(fig)
 CRESSTsrf.plot_curve(fig)
+DAMIC100.plot_curve(fig)
 DarkSide.plot_curve(fig)
 LUX.plot_curve(fig)
 NEWSG.plot_curve(fig)
@@ -92,6 +97,7 @@ PICO_C3F8.plot_curve(fig)
 PICO_CF3I.plot_curve(fig)
 X1T_MIG.plot_curve(fig)
 XENON1T.plot_curve(fig)
+XENON1T2.plot_curve(fig)
 # XENON100.plot_curve(fig)
 XMASS.plot_curve(fig)
 
@@ -99,10 +105,11 @@ XMASS.plot_curve(fig)
 DAMA_I.plot_curve(fig)
 DAMA_Na.plot_curve(fig)
 
-## Add the projection curves
-LZ.plot_curve(fig, style='projection')
-SuperCDMS.plot_curve(fig, style='projection')
-XENONnT.plot_curve(fig, style='projection')
+# ## Add the projection curves
+# DAMICM.plot_curve(fig, style='projection')
+# LZ.plot_curve(fig, style='projection')
+# SuperCDMS.plot_curve(fig, style='projection')
+# XENONnT.plot_curve(fig, style='projection')
 
 ## Add the neutrino floor
 NuFog.plot_curve(fig)
