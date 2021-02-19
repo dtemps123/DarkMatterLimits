@@ -45,6 +45,10 @@ XENON1T   = RC.ResultCurve("XENON1T_2018.dat")
 XENON100  = RC.ResultCurve("XENON100S2_2016.dat")
 XMASS     = RC.ResultCurve("XMASS_2018.dat")
 
+## Result Contours
+DAMA_I    = RC.ResultContour("DAMA_I.dat")
+DAMA_Na   = RC.ResultContour("DAMA_Na.dat")
+
 ## Projection curves
 LZ        = RC.ResultCurve("LZ_projection_2018.dat")
 SuperCDMS = RC.ResultCurve("SuperCDMS_SNOLAB_projection_2017.dat")
@@ -90,6 +94,10 @@ X1T_MIG.plot_curve(fig)
 XENON1T.plot_curve(fig)
 # XENON100.plot_curve(fig)
 XMASS.plot_curve(fig)
+
+## Add the result contours
+DAMA_I.plot_curve(fig)
+DAMA_Na.plot_curve(fig)
 
 ## Add the projection curves
 LZ.plot_curve(fig, style='projection')
