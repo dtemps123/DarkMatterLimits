@@ -31,6 +31,7 @@ pyp.rc('font', family='serif')
 default_colors = pyp.rcParams['axes.prop_cycle'].by_key()['color']
 ## ==================================================== ##
 
+## Result curves
 CDEX10    = RC.ResultCurve("CDEX10_2018.dat")
 CDMSLite  = RC.ResultCurve("CDMSLite_2016.dat")
 CRESSTII  = RC.ResultCurve("CRESSTII_2015.dat")
@@ -47,10 +48,15 @@ XENON1T   = RC.ResultCurve("XENON1T_2018.dat")
 XENON100  = RC.ResultCurve("XENON100S2_2016.dat")
 XMASS     = RC.ResultCurve("XMASS_2018.dat")
 
+## Projection curves
+LZ        = RC.ResultCurve("LZ_projection_2018.dat")
+SuperCDMS = RC.ResultCurve("SuperCDMS_SNOLAB_projection_2017.dat")
+XENONnT   = RC.ResultCurve("XENONnT_projection_2020.dat")
+
 ## ==================================================== ##
 fig, ax0 = pyp.subplots(1,1, figsize = (9,7))
 
-## Add the curves
+## Add the result curves
 CDEX10.plot_curve(fig)
 CDMSLite.plot_curve(fig)
 CRESSTII.plot_curve(fig)
@@ -66,6 +72,11 @@ X1T_MIG.plot_curve(fig)
 XENON1T.plot_curve(fig)
 # XENON100.plot_curve(fig)
 XMASS.plot_curve(fig)
+
+## Add the projection curves
+LZ.plot_curve(fig, style='projection')
+SuperCDMS.plot_curve(fig, style='projection')
+XENONnT.plot_curve(fig, style='projection')
 
 ## Set the plot scales
 ax0.set_xscale('log')

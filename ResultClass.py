@@ -66,12 +66,14 @@ class ResultCurve:
 		self.mass = data[:,0]
 		self.xsec = data[:,1]		
 
-	def plot_curve(self, fig, show_label=True):
+	def plot_curve( self, fig, 
+					show_label=True,
+					style=None):
 		ax = fig.gca()
 
 		## Draw the curve
 		ax.plot(self.mass, self.xsec,
-			linestyle = '-',
+			linestyle = ( '--' if (style=='projection') else '-'),
 			linewidth = 1.5,
 			color     = self.color,
 			label     = self.label,
