@@ -1,5 +1,5 @@
 import numpy as n
-# import matplotlib.pyplot as pyp
+from scipy.interpolate import interp1d
 
 N_HEAD_LINES = 6
 
@@ -64,7 +64,12 @@ class ResultCurve:
 			delimiter = ','              )
 
 		self.mass = data[:,0]
-		self.xsec = data[:,1]		
+		self.xsec = data[:,1]	
+
+		self.interpolator = interp1d(self.mass, self.xsec,
+			bounds_error=False,
+			fill_value=1e-10)
+			# fill_value=(self.xsec[0],self.xsec[-1]))
 
 	def plot_curve( self, fig, 
 					show_label=True,
