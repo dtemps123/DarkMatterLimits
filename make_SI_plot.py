@@ -133,7 +133,7 @@ ax0.set_ylim(plot_y_limits)
 
 ## Set the axis labels
 ax0.set_xlabel('DM mass [GeV/c$^{2}$]')
-ax0.set_ylabel(r'SI DM-nucleon cross section $\sigma_\chi^\mathrm{SI}$ [cm$^{2}$]')
+ax0.set_ylabel(r'SI DM-nucleon cross section $\sigma_{\chi n}^\mathrm{SI}$ [cm$^{2}$]')
 
 ## Turn on some extra tick marks
 ax0.xaxis.set_tick_params(top = 'on', which='minor')

@@ -108,7 +108,7 @@ ax0.set_ylim(plot_y_limits)
 
 ## Set the axis labels
 ax0.set_xlabel('DM mass [GeV/c$^{2}$]')
-ax0.set_ylabel(r'SD DM-nucleon cross section $\sigma_\chi^\mathrm{SD}$ [cm$^{2}$]')
+ax0.set_ylabel(r'SD DM-proton $\sigma_{\chi p}^\mathrm{SD}$ [cm$^{2}$]')
 
 ## Turn on some extra tick marks
 ax0.xaxis.set_tick_params(top = 'on', which='minor')
@@ -144,7 +144,7 @@ ax1.set_ylim(plot_y_limits)
 
 ## Set the axis labels
 ax1.set_xlabel('DM mass [GeV/c$^{2}$]')
-ax1.set_ylabel(r'SD DM-nucleon cross section $\sigma_\chi^\mathrm{SD}$ [cm$^{2}$]')
+ax1.set_ylabel(r'SD DM-neutron $\sigma_{\chi n}^\mathrm{SD}$ [cm$^{2}$]')
 
 ## Turn on some extra tick marks
 ax1.xaxis.set_tick_params(top = 'on', which='minor')
