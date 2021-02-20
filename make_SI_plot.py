@@ -132,8 +132,8 @@ ax0.set_xlim(plot_x_limits)
 ax0.set_ylim(plot_y_limits)
 
 ## Set the axis labels
-ax0.set_xlabel('WIMP mass [GeV/c$^{2}$]')
-ax0.set_ylabel('WIMP-nucleon cross section [cm$^{2}$]')
+ax0.set_xlabel('DM mass [GeV/c$^{2}$]')
+ax0.set_ylabel('SI DM-nucleon cross section [cm$^{2}$]')
 
 ## Turn on some extra tick marks
 ax0.xaxis.set_tick_params(top = 'on', which='minor')
