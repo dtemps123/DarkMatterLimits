@@ -2,7 +2,7 @@ source: 1902.03234
 label: XENON1T
 year: 2019
 color: #3cb44b
-label_xpos: 85
+label_xpos: 0.6
 label_ypos: 7e-42
 6.022393640196432,3.786089007568378e-39
 6.083474312525538,3.029089795023782e-39
