@@ -116,7 +116,7 @@ XENONnT.plot_curve(fig, style='projection')
 ## Add the neutrino floor
 NuFog.plot_curve(fig)
 
-# ## Add some lines
+# ## Add some lines (tree-level scattering through Z0)
 # ax0.plot(plot_x_limits, 1e-39*n.ones(2), 'r--', linewidth=3.0)
 
 ## Fill in the exclusion curve
