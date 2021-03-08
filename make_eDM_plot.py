@@ -85,6 +85,13 @@ ax0.fill_between(x_val_arr, exp_upper_lim_FDM1, 1e-18,
 	alpha  = 0.5, 
 	lw     = 0)
 
+## Add a label for the plot
+ax0.text(1.1*plot_x_limits[0], 10*plot_y_limits_FDM1[0], 
+	r"$F(q) \propto 1$",
+	fontsize=14,
+	color='k',
+	weight="bold")
+
 ## Set the plot scales
 ax0.set_xscale('log')
 ax0.set_yscale('log')
@@ -117,6 +124,13 @@ ax1.fill_between(x_val_arr, exp_upper_lim_FDMq2, 1e-18,
 	zorder = 0, 
 	alpha  = 0.5, 
 	lw     = 0)
+
+## Add a label for the plot
+ax1.text(1.1*plot_x_limits[0], 2.5*plot_y_limits_FDMq2[0], 
+	r"$F(q) \propto q^{-2}$",
+	fontsize=14,
+	color='k',
+	weight="bold")
 
 ## Set the plot scales
 ax1.set_xscale('log')
